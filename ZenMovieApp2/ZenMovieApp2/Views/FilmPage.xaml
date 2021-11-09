@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZenMovieApp2.Views.FilmPage"
+             >
+   
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+
+                <AbsoluteLayout>
+                    <Image x:Name="ımgKapakFoto" Source="{Binding FilmKapakFoto, Converter={StaticResource imageConverter}}" Aspect="Fill"></Image>
+                </AbsoluteLayout>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0" >
+                    <AbsoluteLayout>
+                        <ImageButton x:Name="ımgBtnLikeGray"  Source="likewhite.png" Clicked="OnLikeGonder" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent" IsVisible="true"></ImageButton>
+                        <Image x:Name="ımgBtnLikeGreen"  Source="likegreen.png" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent" IsVisible="false"></Image>
+                    </AbsoluteLayout>
+                    <AbsoluteLayout Margin="30,0,0,0">
+                        <ImageButton x:Name="ımgBtnDislikeGray" Source="dislikewhite.png" Clicked="OnDislikeGonder" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent" IsVisible="true"></ImageButton>
+                        <Image x:Name="ımgBtnDislikeRed" Source="dislikered.png" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent" IsVisible="false"></Image>
+                    </AbsoluteLayout>
+                    <StackLayout Margin="30,-10,0,0">
+                        <Button x:Name="ımgbtn" ImageSource="oynat.png" CornerRadius="2" WidthRequest="90" HeightRequest="40" Opacity="1" BackgroundColor="Transparent" Clicked="OnIzle" CommandParameter="{Binding FilmLink}"></Button>
+                    </StackLayout>
+                    <AbsoluteLayout Margin="30,-5,0,0">
+                        <ImageButton x:Name="ımgBtnFavWhite" Source="favwhite.png" Clicked="OnFavFilmSec" WidthRequest="30" HeightRequest="30" BackgroundColor="Transparent" IsVisible="true"></ImageButton>
+                        <ImageButton x:Name="ımgBtnFavRed" Source="favred.png" Clicked="OnFavFilmCikar" WidthRequest="30" HeightRequest="30" BackgroundColor="Transparent" IsVisible="false"></ImageButton>
+                    </AbsoluteLayout>
+                    <StackLayout Margin="30,-5,0,0">
+                        <ImageButton x:Name="ımgBtnShare" Source="share.png" Clicked="OnShare" WidthRequest="25" HeightRequest="25" BackgroundColor="Transparent"></ImageButton>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Margin="0,35,0,0" HorizontalOptions="StartAndExpand">
+                    <Label FontSize="Medium" FontAttributes="Bold" HorizontalOptions="StartAndExpand" TextColor="WhiteSmoke" Text="Konusu"></Label>
+                    <BoxView BackgroundColor="Yellow" HeightRequest="5"></BoxView>
+                    <Label x:Name="lbKonu" FontSize="Small" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"></Label>
+                </StackLayout>
+
+
+                <StackLayout Padding="0,20,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Text="IMDB Puanı" FontSize="Small" TextColor="Yellow"  HorizontalTextAlignment="Start"></Label>
+                        <Label Grid.Row="1" Grid.Column="0" Text="Yapım Yılı" FontSize="Small" TextColor="Yellow"  HorizontalTextAlignment="Start"></Label>
+                        <Label Grid.Row="2" Grid.Column="0" Text="Süresi" FontSize="Small" TextColor="Yellow"  HorizontalTextAlignment="Start"></Label>
+                        <Label Grid.Row="3" Grid.Column="0" Text="İzlenme Sayısı" FontSize="Small" TextColor="Yellow"  HorizontalTextAlignment="Start"></Label>
+                        <Label Grid.Row="4" Grid.Column="0" Text="Oyuncular" FontSize="Small" TextColor="Yellow" HorizontalTextAlignment="Start"></Label>
+                        <Label Grid.Row="5" Grid.Column="0" Text="Kategoriler" FontSize="Small" TextColor="Yellow" HorizontalTextAlignment="Start"></Label>
+                        <Label Grid.Row="6" Grid.Column="0" Text="Yönetmenler" FontSize="Small" TextColor="Yellow" HorizontalTextAlignment="Start"></Label>
+
+                        <Label x:Name="lbIMDB" Grid.Row="0" Grid.Column="1" FontSize="Small" TextColor="WhiteSmoke" HorizontalTextAlignment="Start" ></Label>
+                        <Label x:Name="lbYıl" Grid.Row="1" Grid.Column="1" FontSize="Small" TextColor="WhiteSmoke" HorizontalTextAlignment="Start" ></Label>
+                        <Label x:Name="lbSure" Grid.Row="2" Grid.Column="1" FontSize="Small" TextColor="WhiteSmoke" HorizontalTextAlignment="Start" ></Label>
+                        <Label x:Name="lbIzlenme" Grid.Row="3" Grid.Column="1" FontSize="Small" TextColor="WhiteSmoke" HorizontalTextAlignment="Start" ></Label>
+                        <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never" Grid.Row="4" Grid.Column="1">
+                            <Label x:Name="lbOyuncu"  FontSize="Small" TextColor="WhiteSmoke" HorizontalTextAlignment="Start" ></Label>
+                        </ScrollView>
+                        <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never" Grid.Row="5" Grid.Column="1">
+                            <Label x:Name="lbKat" FontSize="Small" TextColor="WhiteSmoke" HorizontalTextAlignment="Start" ></Label>
+                        </ScrollView>
+                        <Label x:Name="lbYonetmen" Grid.Row="6" Grid.Column="1" FontSize="Small" TextColor="WhiteSmoke" HorizontalTextAlignment="Start" ></Label>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

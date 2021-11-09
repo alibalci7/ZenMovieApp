@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZenMovieApp2.Views.MasterPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                    <Image Source="ZenMovie2.png" BackgroundColor="Black" Margin="10"></Image>
+                </StackLayout>
+                <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand">
+                    <Label TextColor="White" FontSize="Medium" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand">ZenMovie Uygulamasına Hoşgeldiniz.</Label>
+                    <Label TextColor="White" FontSize="Default"  HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand">Uygulamamız yerli ve yabancı kategorilerdeki filmleri ve dizileri Youtube platformundaki verilerden çekerek sizlere sunmaktadır.</Label>
+                </StackLayout>
+
+                <BoxView BackgroundColor="Yellow" HeightRequest="2"></BoxView>
+
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+                    <StackLayout Orientation="Horizontal" Margin="5,0,5,0" HeightRequest="30">
+                        <SearchBar x:Name="sbArama" FontSize="Small" Placeholder="Arama..." TextColor="Black" PlaceholderColor="Black" BackgroundColor="White" HorizontalOptions="StartAndExpand" WidthRequest="200" VerticalTextAlignment="End" HorizontalTextAlignment="Start"></SearchBar>
+                        <Button Text="ARA" BackgroundColor="White" TextColor="Black" FontFamily="Verdana" FontAttributes="Bold" FontSize="10" Clicked="OnArama" HorizontalOptions="EndAndExpand" WidthRequest="60"></Button>
+                    </StackLayout>
+
+                    <StackLayout HorizontalOptions="CenterAndExpand">
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="filmicon.png" HeightRequest="20" WidthRequest="20"></Image>
+                            <Button Text="Filmler" Clicked="FilmlereGit" BackgroundColor="Transparent" FontSize="Small" FontAttributes="Bold" TextColor="White"></Button>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="diziicon.png" HeightRequest="20" WidthRequest="20"></Image>
+                            <Button Text="Diziler" Clicked="DizilereGit" BackgroundColor="Transparent" FontSize="Small" FontAttributes="Bold" TextColor="White"></Button>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="favred.png" HeightRequest="20" WidthRequest="20"></Image>
+                            <Button Text="Listem" Clicked="ListemeGit" BackgroundColor="Transparent" FontSize="Small" FontAttributes="Bold" TextColor="White" ></Button>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="history.png" HeightRequest="20" WidthRequest="20"></Image>
+                            <Button Text="Geçmiş" Clicked="GecmiseGit" BackgroundColor="Transparent" FontSize="Small" FontAttributes="Bold" TextColor="White"></Button>
+                        </StackLayout>
+                    </StackLayout>
+
+                </StackLayout>
+                <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" Padding="0,0,0,25">
+                    <Label Text="© Tüm Hakları Saklıdır." FontSize="Small" TextColor="White"></Label>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

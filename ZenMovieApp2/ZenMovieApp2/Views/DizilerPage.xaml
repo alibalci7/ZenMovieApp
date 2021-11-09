@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZenMovieApp2.Views.DizilerPage"
+             xmlns:lst="clr-namespace:ZenMovieApp2.CustomRenderer"
+             >
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="filter.png" Order="Primary" Priority="1" Clicked="OnFiltreGit"></ToolbarItem>
+        <ToolbarItem IconImageSource="order.png" Order="Primary" Priority="2" Clicked="OnSiralamayaGit"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ActivityIndicator x:Name="yukleme" Color="Yellow" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></ActivityIndicator>
+            <ScrollView x:Name="sayfa" IsVisible="false">
+                <ListView x:Name="lstDiziler" ItemsSource="{Binding .}" ItemSelected="OnSelected" HasUnevenRows="True" IsPullToRefreshEnabled="True" Refreshing="OnRefreshed" CachingStrategy="RecycleElement">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View >
+                                    <StackLayout Orientation="Horizontal" Padding="0,5,0,20">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <AbsoluteLayout Grid.Column="0" Grid.Row="0">
+                                                <Image Source="{Binding DiziKapakFoto, Converter={StaticResource imageConverter}}" HeightRequest="150" WidthRequest="100" Aspect="AspectFill"></Image>
+                                                <ImageButton Source="playbtn1.png" HeightRequest="150" WidthRequest="100" Aspect="AspectFill" BackgroundColor="Transparent" Clicked="OnDiziGit" CommandParameter="{Binding DiziID}"></ImageButton>
+                                            </AbsoluteLayout>
+                                        </Grid>
+                                        <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                    <RowDefinition Height="Auto"></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <Label Grid.Row="0" Grid.Column="0" Text="Dizi Adı" FontSize="Medium" TextColor="Yellow" HorizontalTextAlignment="Start"></Label>
+                                                <Label Grid.Row="1" Grid.Column="0" Text="Oyuncular" FontSize="Medium" TextColor="Yellow"  HorizontalTextAlignment="Start"></Label>
+                                                <Label Grid.Row="2" Grid.Column="0" Text="IMDB Puanı" FontSize="Medium" TextColor="Yellow" HorizontalTextAlignment="Start"></Label>
+
+                                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding DiziBaslik}" FontSize="Medium" TextColor="WhiteSmoke" HorizontalTextAlignment="Start"></Label>
+                                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding DiziOyuncular}" FontSize="Medium" TextColor="WhiteSmoke"  HorizontalTextAlignment="Start"></Label>
+                                                <Label Grid.Row="2" Grid.Column="1" Text="{Binding DiziIMDB}" FontSize="Medium" TextColor="WhiteSmoke" HorizontalTextAlignment="Start"></Label>
+                                            </Grid>
+                                        </ScrollView>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+            <ActivityIndicator x:Name="doldur" Color="Yellow" IsRunning="True" IsVisible="false"  HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" HeightRequest="25" WidthRequest="25"></ActivityIndicator>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

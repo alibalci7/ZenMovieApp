@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ZenMovieApp2.Views.SiralamaPage" 
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             >
+
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="False"
+            >
+        </animations:ScaleAnimation>
+    </pages:PopupPage.Animation>
+
+    <StackLayout x:Name="cerceve" Margin="250,55,0,50">
+        <Button Text="İsme Göre (A'dan Z'ya)" TextColor="WhiteSmoke" BackgroundColor="Transparent" FontSize="14" Clicked="OnIsmeGoreKB_Clicked"></Button>
+        <Button Text="İsme Göre (Z'den A'ya)" TextColor="WhiteSmoke" BackgroundColor="Transparent" FontSize="14" Clicked="OnIsmeGoreBK_Clicked"></Button>
+        <Button Text="Yıla Göre (Büyükten Küçüğe)" TextColor="WhiteSmoke" BackgroundColor="Transparent" FontSize="14" Clicked="OnYilaGoreBK_Clicked"></Button>
+        <Button Text="Yıla Göre (Küçükten Büyüğe)" TextColor="WhiteSmoke" BackgroundColor="Transparent" FontSize="14" Clicked="OnYilaGoreKB_Clicked"></Button>
+        <Button Text="IMDB'ye Göre (Büyükten Küçüğe)" TextColor="WhiteSmoke" BackgroundColor="Transparent" FontSize="14" Clicked="OnIMDBGoreBK_Clicked"></Button>
+        <Button Text="ıMDB'ye Göre (Küçükten Büyüğe)" TextColor="WhiteSmoke" BackgroundColor="Transparent" FontSize="14" Clicked="OnIMDBGoreKB_Clicked"></Button>
+    </StackLayout>
+    
+</pages:PopupPage>
